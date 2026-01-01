@@ -1,696 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deepak Nelson - Game Developer Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deepak Nelson | Game Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="token.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+      :root {
+        --color-primary: #E80368;
+        --color-secondary: #a80951;
+        --color-accent: #680833;
+        --color-complimentary: #03E883;
+        --bg-dark: #191C1F;
+        --bg-black: #0a0a0a;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-black);
+        color: #ffffff;
+        scroll-behavior: smooth;
+      }
+      .accent-gradient {
+        background: linear-gradient(270deg, var(--color-primary) 0%, var(--color-accent) 100%);
+      }
+      .text-primary {
+        color: var(--color-primary);
+      }
+      .text-complimentary {
+        color: var(--color-complimentary);
+      }
+      .border-primary {
+        border-color: var(--color-primary);
+      }
+      .btn-primary {
+        background: linear-gradient(270deg, var(--color-primary) 0%, var(--color-accent) 100%);
+        box-shadow: 0 4px 15px rgba(232, 3, 104, 0.2);
+        transition: all 0.3s ease;
+      }
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(232, 3, 104, 0.4);
+      }
+      .card-bg {
+        background: var(--bg-dark);
+        border: 1px solid rgba(232, 3, 104, 0.1);
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg-black);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--color-primary);
+        border-radius: 10px;
+      }
+    </style>
+    <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom": "https://esm.sh/react-dom@^19.2.3"
+  }
+}
+</script>
+  <link rel="stylesheet" href="/index.css">
 </head>
-<body>
-        <!-- Loader -->
-    <div id="loader">
-        <div class="loader-inner">
-            <div class="pulse"></div>
-        </div>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <h1>Deepak Nelson</h1>
-            </div>
-            <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#about" class="nav-link">Profile</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#resume" class="nav-link">Experience</a>
-                <a href="#portfolio" class="nav-link">Portfolio</a>
-                <a href="#contact" class="nav-link">Contact</a>
-                <a href="Resume_DeepakNelson_2025.pdf" class="btn btn-primary" style="margin-left:1.5rem;" download target="_blank">Download CV</a>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">
-                <span class="typing-text">DEEPAK NELSON</span>
-            </h1>
-            <p class="hero-subtitle">Game Developer turning wild ideas into polished and fun adventures - one level at a time.</p>
-            <div class="social-links">
-                <a href="https://twitter.com/thedrakun" target="_blank" class="social-link">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://www.instagram.com/thedrakun/" target="_blank" class="social-link">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/thedrakun/" target="_blank" class="social-link">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/DeepakNelsonX" target="_blank" class="social-link">
-                    <i class="fab fa-github"></i>
-                </a>
-            </div>
-            <div class="hero-buttons">
-                <a href="#portfolio" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-            </div>
-        </div>
-        <div class="hero-image" style="display: none;">
-            <div class="floating-elements">
-                <div class="floating-element unity-logo"><i class="fa-brands fa-unity"></i></div>
-                <div class="floating-element csharp-logo"><i class="fa-solid fa-code"></i></div>
-                <div class="floating-element game-controller"><i class="fas fa-gamepad"></i></div>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
-            <p>Scroll Down</p>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Profile</h2>
-                <p class="section-subtitle">A brief overview of my background and expertise</p>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Experienced Unity Game Developer</h3>
-                    <p>Unity Game Developer with 4+ years of experience building mobile games. Strong focus on clean C# systems, rapid gameplay prototyping, and performance optimization, working closely with designers and artists to balance technical execution and visual direction for polished player experiences.</p>
-                    <div class="personal-info">
-                        <div class="info-group">
-                            <div class="info-item">
-                                <i class="fas fa-briefcase"></i>
-                                <span><strong>Experience:</strong> 4+ years<br><small>Professional Unity Game Developer since 2021</small></span>
-                            </div>
-                            <div class="info-item">
-                                <i class="fas fa-graduation-cap"></i>
-                                <span><strong>Highest Qualification:</strong> MSc Game Technology<br><small>SRM Institute of Science and Technology</small></span>
-                            </div>
-                        </div>
-                        <div class="info-group">
-                            <div class="info-item">
-                                <i class="fas fa-cogs"></i>
-                                    <span><strong>Contributions:</strong> Gameplay Systems & Technical Art Integration<br><small>Architected scalable gameplay, monetization, and rapid prototyping for top-performing mobile titles</small></span>
-                            </div>
-                            <div class="info-item">
-                                <i class="fas fa-rocket"></i>
-                                <span><strong>Current Status:</strong> Game Developer @ Super Huge Studios<br><small>Building engaging mobile games with a focus on quality and innovation</small></span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <p>Fueled by a passion for innovation, I love tackling tough gameplay challenges and pushing creative boundaries. My goal is to craft unforgettable, high-impact experiences that delight players and set new standards in mobile gaming.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Skills & Interests</h2>
-                <p class="section-subtitle">Technical skills and areas of interest</p>
-            </div>
-            <div class="skills-content">
-                <div class="technical-skills">
-                    <h3>Technical Skills</h3>
-                    <div class="skill-bars">
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>Unity & C#</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>Gameplay Programming</span>
-                                <span>88%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="88%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>Prototyping</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>Unity Editor Scripting</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="80%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>Game Design Principles</span>
-                                <span>82%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="82%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>Interactive Visual Design</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="75%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="interests">
-                    <h3>Interests</h3>
-                    <div class="interest-items">
-                        <div class="interest-item">
-                            <i class="fas fa-pencil-alt"></i>
-                            <h4>Sketching & Drawing</h4>
-                        </div>
-                        <div class="interest-item">
-                            <i class="fas fa-gamepad"></i>
-                            <h4>Gaming</h4>
-                        </div>
-                        <div class="interest-item">
-                            <i class="fas fa-video"></i>
-                            <h4>Video Editing & Montages</h4>
-                        </div>
-                        <div class="interest-item">
-                            <i class="fas fa-trophy"></i>
-                            <h4>FPS E-Sports Fan</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Resume Section -->
-    <section id="resume" class="resume">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Experience</h2>
-                <p class="section-subtitle">Career history and achievements</p>
-            </div>
-            <div class="resume-content">
-                <div class="timeline">
-                    <div class="timeline-section">
-                        <!-- Current Role - Super Huge Studio -->
-                        <div class="timeline-item">
-                            <div class="timeline-date">Jun 2024 - Present</div>
-                            <div class="timeline-content">
-                                <h4>Unity Game Developer</h4>
-                                <h5>Super Huge Studios, Bengaluru</h4>
-                                <p><strong>Key Projects:</strong></p>
-                                
-                                <div class="project-highlight">
-                                    <h6>Solitaire Candy World – Casual Game</h5>
-                                    <ul>
-                                        <li>Successfully launched solitaire franchise with strong player retention and revenue growth</li>
-                                        <li>Developed comprehensive progression systems (WinStreak, Season Pass, Powerups, Albums) using MVC architecture with reactive UI bindings</li>
-                                        <li>Engineered Universal Particle Attractor System utilizing DOTween, object pooling, and Observer pattern - boosted performance by 70% while creating reusable framework</li>
-                                        <li>Integrated Amplitude SDK for game analytics and push notification APIs with adaptive rescheduling algorithms</li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="project-highlight">
-                                    <h6>Cat Wool – Hyper-Casual Mobile Game</h5>
-                                    <ul>
-                                        <li>Developed complete hyper-casual game from prototype to production in 3-4 weeks</li>
-                                        <li>Created level generation toolkit and bot view simulation that doubled level creation speed</li>
-                                        <li>Implemented procedural level generation and data parsing systems with seamless animations and VFX</li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="project-highlight">
-                                    <h6>Project Shootopia – Immersive Virtual Arcade Shooting Games with Projection Project</h5>
-                                    <ul>
-                                        <li>Led front-end architecture and team development for 2 arcade shooter games</li>
-                                        <li>Built WebSocket-based aiming coordination system for 0.05ms laser detection accuracy</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Previous Role - Flick Games Studio -->
-                        <div class="timeline-item">
-                            <div class="timeline-date">Jan 2022 - Jan 2024</div>
-                            <div class="timeline-content">
-                                <h4>Jr Game Developer</h4>
-                                <h5>Flick Games Studio, Hyderabad (Remote)</h4>
-                                <ul>
-                                    <li>Contributed to international mobile game studio's success across 20+ published titles, driving collective 30K+ downloads on Google Play Store</li>
-                                    <li>Engineered core gameplay mechanics and designed unique game experiences implementing comprehensive graphics, audio, visual, and AI behavioral systems</li>
-                                    <li>Established scalable development frameworks that accelerated studio-wide production timelines and optimized monetization through integrated ads and in-app purchases</li>
-                                    <li>Consistently delivered projects on schedule through exceptional initiative, creativity, and time management across diverse game genres</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-section">
-                        <h3 class="timeline-title">Education & Achievements</h3>
-                        <div class="timeline-item">
-                            <div class="timeline-date">2019 - 2021</div>
-                            <div class="timeline-content">
-                                <h4>Master of Science in Game Technology</h4>
-                                <h5>ICAT Design and Media College, Bangalore, Karnataka</h5>
-                                <ul>
-                                    <li>Achieved top rank in the Master's program, proving excellence in academics and practical skills</li>
-                                    <li>Led the college's IP Project as Lead Gameplay Developer - my first taste of leading a game team</li>
-                                    <li>Dove deep into game technology, game architecture, and advanced programming concepts</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">2016 - 2019</div>
-                            <div class="timeline-content">
-                                <h4>Bachelor of Computer Applications</h4>
-                                <h5>Bangalore University, Bangalore, Karnataka</h5>
-                                <ul>
-                                    <li>Maintained a solid 7.3 GPA while discovering my passion for programming</li>
-                                    <li>Active participant in multiple college fests - learned teamwork outside the classroom!</li>
-                                    <li>Built my foundation in computer applications and fell in love with coding</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Portfolio</h2>
-                <p class="section-subtitle">Selected portfolio of games and projects</p>
-            </div>
-            <div class="portfolio-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="casual">Casual</button>
-                <button class="filter-btn" data-filter="action">Action</button>
-                <button class="filter-btn" data-filter="puzzle">Puzzle</button>
-            </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-item" data-category="casual" data-project="candy-world-sol">
-                    <div class="portfolio-image">
-                        <img src="images/icons/candy-world-sol/Solitaire_Candyland_1024.png" alt="Solitaire Candy World" class="portfolio-img">
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>Solitaire Candy World</h4>
-                        <p>Colorful and engaging solitaire adventure</p>
-                        <div class="portfolio-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.superhugestudios.candyworld.free.harvest&hl=en_IN" target="_blank" class="portfolio-link" onclick="event.stopPropagation()">
-                                <i class="fab fa-google-play"></i>
-                            </a>
-                            <span class="info-icon" title="More Info"><i class="fas fa-info-circle"></i></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item" data-category="puzzle" data-project="cat-wool">
-                    <div class="portfolio-image">
-                        <img src="images/icons/cat-wool/App-Icon_1024.png" alt="Cat Wool" class="portfolio-img">
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>Cat Wool</h4>
-                        <p>Hyper-casual game about cats and wool</p>
-                        <div class="portfolio-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.superhuge.catwool&hl=en_IN" target="_blank" class="portfolio-link" onclick="event.stopPropagation()">
-                                <i class="fab fa-google-play"></i>
-                            </a>
-                            <span class="info-icon" title="More Info"><i class="fas fa-info-circle"></i></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item" data-category="action" data-project="shootopia">
-                    <div class="portfolio-image">
-                        <img src="images/icons/shootopia/shootopia.png" alt="Shootopia" class="portfolio-img">
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>Shootopia</h4>
-                        <p>Immersive Virtual Arcade Shooting Game with Projection</p>
-                        <div class="portfolio-links">
-                            <!-- <a href="https://play.google.com/store/apps/details?id=com.flickgames.cube.survivor" target="_blank" class="portfolio-link has-info" onclick="event.stopPropagation()"> -->
-                                <!-- <i class="fab fa-google-play"></i> -->
-                            </a>
-                            <span class="info-icon" title="More Info"><i class="fas fa-info-circle"></i></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item" data-category="action" data-project="mega-suv">
-                    <div class="portfolio-image">
-                        <img src="images/icons/mega-suv/msuv.webp" alt="Mega SUV Car Ramp" class="portfolio-img">
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>Mega SUV Car Ramp</h4>
-                        <p>Exciting car racing and stunts game</p>
-                        <div class="portfolio-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.mega.suv.car.ramp" target="_blank" class="portfolio-link has-info" onclick="event.stopPropagation()">
-                                <i class="fab fa-google-play"></i>
-                            </a>
-                            <span class="info-icon" title="More Info"><i class="fas fa-info-circle"></i></span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="action" data-project="cube-survivor">
-                    <div class="portfolio-image">
-                        <img src="images/icons/cube-survivor/cs.jpeg" alt="Cube Survivor" class="portfolio-img">
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>Cube Survivor</h4>
-                        <p>Survival game with cube mechanics</p>
-                        <div class="portfolio-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.flickgames.cube.survivor" target="_blank" class="portfolio-link has-info" onclick="event.stopPropagation()">
-                                <i class="fab fa-google-play"></i>
-                            </a>
-                            <span class="info-icon" title="More Info"><i class="fas fa-info-circle"></i></span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="casual" data-project="deliver3d">
-                    <div class="portfolio-image">
-                        <img src="images/icons/deliver3d/d3d.webp" alt="Deliver 3D" class="portfolio-img">
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>Deliver 3D</h4>
-                        <p>3D delivery simulation game</p>
-                        <div class="portfolio-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.flickgames.deliver3d" target="_blank" class="portfolio-link has-info" onclick="event.stopPropagation()">
-                                <i class="fab fa-google-play"></i>
-                            </a>
-                            <span class="info-icon" title="More Info"><i class="fas fa-info-circle"></i></span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="casual" data-project="lets-deliver">
-                    <div class="portfolio-image">
-                        <img src="images/icons/lets-deliver/ld.png" alt="Lets Deliver" class="portfolio-img">
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>Lets Deliver</h4>
-                        <p>Package delivery management game</p>
-                        <div class="portfolio-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.flickgames.letsdeliver" target="_blank" class="portfolio-link has-info" onclick="event.stopPropagation()">
-                                <i class="fab fa-google-play"></i>
-                            </a>
-                            <span class="info-icon" title="More Info"><i class="fas fa-info-circle"></i></span>
-                        </div>
-                    </div>
-                </div>
-            
-                <div class="portfolio-item" data-category="action" data-project="mototrail">
-                    <div class="portfolio-image">
-                        <img src="images/icons/mototrail/moto.png" alt="MotoTrail Extreme Bike" class="portfolio-img">
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>MotoTrail Extreme Bike</h4>
-                        <p>Extreme motorcycle stunts and racing</p>
-                        <div class="portfolio-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.flickgames.mototrial" target="_blank" class="portfolio-link has-info" onclick="event.stopPropagation()">
-                                <i class="fab fa-google-play"></i>
-                            </a>
-                            <span class="info-icon" title="More Info"><i class="fas fa-info-circle"></i></span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="action" data-project="battle-of-apes">
-                    <div class="portfolio-image">
-                        <img src="images/icons/battle-of-apes/boa.png" alt="Battle of Apes" class="portfolio-img">
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>Battle of Apes</h4>
-                        <p>Strategic battle game with primates</p>
-                        <div class="portfolio-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.battle.of.apes" target="_blank" class="portfolio-link has-info" onclick="event.stopPropagation()">
-                                <i class="fab fa-google-play"></i>
-                            </a>
-                            <span class="info-icon" title="More Info"><i class="fas fa-info-circle"></i></span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- <div class="portfolio-item" data-category="puzzle" data-project="find-match-3d">
-                    <div class="portfolio-image">
-                        <img src="images/icons/find-match-3d/fm3d.png" alt="Find Match 3D" class="portfolio-img">
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>Find Match 3D</h4>
-                        <p>3D matching puzzle game</p>
-                        <div class="portfolio-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.flickgames.findmatch3d" target="_blank" class="portfolio-link has-info" onclick="event.stopPropagation()">
-                                <i class="fab fa-google-play"></i>
-                            </a>
-                            <span class="info-icon" title="More Info"><i class="fas fa-info-circle"></i></span>
-                        </div>
-                    </div>
-                </div> -->
-                
-                <div class="portfolio-item" data-category="puzzle" data-project="draw-2-drive">
-                    <div class="portfolio-image">
-                        <img src="images/icons/draw-2-drive/d2d.jpg" alt="Draw 2 Drive" class="portfolio-img">
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>Draw 2 Drive</h4>
-                        <p>Creative drawing and driving game</p>
-                        <div class="portfolio-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.flickgames.draw2drive" target="_blank" class="portfolio-link has-info" onclick="event.stopPropagation()">
-                                <i class="fab fa-google-play"></i>
-                            </a>
-                            <!-- <span class="info-icon" title="More Info"><i class="fas fa-info-circle"></i></span> -->
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="puzzle" data-project="park-n-jam">
-                    <div class="portfolio-image">
-                        <img src="images/icons/park-n-jam/pnj.png" alt="Park N Jam" class="portfolio-img">
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>Park N Jam</h4>
-                        <p>Parking puzzle and strategy game</p>
-                        <div class="portfolio-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.park.and.jam" target="_blank" class="portfolio-link has-info" onclick="event.stopPropagation()">
-                                <i class="fab fa-google-play"></i>
-                            </a>
-                            <!-- <span class="info-icon" title="More Info"><i class="fas fa-info-circle"></i></span> -->
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="action" data-project="botster-brawl">
-                    <div class="portfolio-image">
-                        <img src="images/icons/botster-brawl/BB.jpg" alt="Botster Brawl" class="portfolio-img">
-                    </div>
-                    <div class="portfolio-content">
-                        <h4>Botster Brawl</h4>
-                        <p>Multiplayer top-down shooter (WIP)</p>
-                        <div class="portfolio-links">
-                            <a href="#" class="portfolio-link disabled" onclick="event.stopPropagation()">
-                                <i class="fas fa-wrench"></i>
-                            </a>
-                            <span class="info-icon" title="More Info"><i class="fas fa-info-circle"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Contact Me</h2>
-                <p class="section-subtitle">Get in touch for collaboration or opportunities</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>My Address</h4>
-                            <p>Bangalore, Karnataka, India</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Email Me</h4>
-                            <p>deepaknelson.dev@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Call Me</h4>
-                            <p>+91 9108731706</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-share-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Social Profiles</h4>
-                            <div class="social-links">
-                                <a href="https://twitter.com/thedrakun" target="_blank" class="social-link">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="https://www.instagram.com/thedrakun/" target="_blank" class="social-link">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/in/thedrakun/" target="_blank" class="social-link">
-                                    <i class="fab fa-linkedin"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <form class="contact-form" id="contact-form" action="https://formspree.io/f/xzdbwvrk" method="POST">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" placeholder="Your Message" rows="6" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                    <div id="form-status" style="margin-top:10px;"></div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 Designed by <a href="https://www.linkedin.com/in/thedrakun/" target="_blank">Deepak Nelson</a></p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Portfolio Modal -->
-    <div id="portfolio-modal" class="portfolio-modal portfolio-details">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h1 id="modal-title">Project Title</h1>
-            </div>
-            
-            <!-- Modal Body -->
-            <div class="modal-body">
-                <div class="modal-layout">
-                    <!-- Left Column - Screenshots -->
-                    <div class="modal-left">
-                        <div class="screenshot-gallery">
-                            <div class="main-screenshot">
-                                <img id="main-screenshot" src="" alt="">
-                            </div>
-                            <div class="screenshot-thumbnails" id="screenshot-thumbnails">
-                                <!-- Thumbnails will be populated dynamically -->
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Right Column - Project Info -->
-                    <div class="modal-right">
-                        <div class="project-info-section">
-                            <h3>Project Information</h3>
-                            <div class="info-list">
-                                <div class="info-row">
-                                    <strong>Category:</strong> <span id="modal-category">Development</span>
-                                </div>
-                                <div class="info-row">
-                                    <strong>Organization:</strong> <span id="modal-organization">Super Huge Studios</span>
-                                </div>
-                                <div class="info-row">
-                                    <strong>Production date:</strong> <span id="modal-date">2023</span>
-                                </div>
-                                <div class="info-row">
-                                    <strong>Project URL:</strong> <a id="modal-url" href="" target="_blank">Playstore</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Project Description -->
-                        <div class="description-section">
-                            <p id="modal-description">Project description goes here...</p>
-                        </div>
-                       
-                        </div>
-                       
-                    </div>
-                      
-                        <!-- Role and Contributions section Section -->
-                        <div class="role-section">
-                            <h4>Roles and Contributions</h4>
-                            <p id="modal-role-contribution">Role description goes here...</p>
-                        </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Scripts -->
-    
-        <script src="script.js"></script>
-        <script src="portfolio-modal.js"></script>
-        <script>
-            // Disable right-click context menu on the entire page
-            document.addEventListener('contextmenu', function(e) {
-                e.preventDefault();
-            });
-        </script>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
 </body>
 </html>
