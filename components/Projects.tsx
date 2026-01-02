@@ -469,7 +469,7 @@ const Projects: React.FC = () => {
               >
                 <div className={`${project.id === 'candy-world-sol' && filter === 'all' ? 'h-64 md:h-96 lg:h-[32rem]' : 'h-44 md:h-56 lg:h-64'} overflow-hidden relative`}>
                   {isKeyTitle && (
-                    <div className="absolute top-4 left-4 z-20 bg-[#03E883] text-[#0a0a0a] font-black text-[8px] px-3 py-1 rounded-full uppercase tracking-widest shadow-[0_5px_15px_rgba(3,232,131,0.3)]">
+                    <div className="absolute top-4 left-4 z-20 bg-[#03E883] text-[#0a0a0a] font-black text-[8px] px-3 py-1 rounded-full uppercase tracking-widest shadow-[0_5px_15px_rgba(3,232,131,0.3)] pointer-events-none">
                       Highlighted Project
                     </div>
                   )}
@@ -480,16 +480,16 @@ const Projects: React.FC = () => {
                       muted 
                       loop
                       playsInline 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" 
                     />
                   ) : (
                     <img 
                       src={project.imageUrl} 
                       alt={project.title} 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" 
                     />
                   )}
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center">
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center pointer-events-none">
                      <span className="bg-white text-black px-5 py-2 rounded-full font-bold text-[9px] uppercase tracking-widest shadow-xl">Details</span>
                   </div>
                 </div>

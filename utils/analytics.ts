@@ -1,5 +1,4 @@
-// Replace this with your actual Measurement ID from Google Analytics
-export const GA_TRACKING_ID = 'G-XXXXXXXXXX'; 
+export const GA_TRACKING_ID = 'G-F6L6X7V4X1'; 
 
 // Extend the window object to include gtag
 declare global {
@@ -25,11 +24,16 @@ export const event = ({ action, category, label, value }: {
   label: string;
   value?: number;
 }) => {
+  // Debug log: Open your browser console (F12) to see this when you click
+  console.log(`[Analytics] Event Fired: ${action}`, { category, label, value });
+
   if (typeof window.gtag !== 'undefined') {
     window.gtag('event', action, {
       event_category: category,
       event_label: label,
       value: value,
     });
+  } else {
+    console.warn('[Analytics] window.gtag is not defined. You might be using an Ad Blocker.');
   }
 };
