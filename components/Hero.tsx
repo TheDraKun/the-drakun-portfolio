@@ -76,8 +76,8 @@ const Hero: React.FC = () => {
         `}
       </style>
 
-      {/* Background Overlay Image */}
-      <div className="absolute inset-0 opacity-20 pointer-events-none bg-[url('/images/hero-bg.png')] bg-no-repeat bg-right-top bg-contain hidden md:block" />
+      {/* Background Gradient Blob (Replaced missing image) */}
+      <div className="absolute right-0 top-0 -z-10 w-[600px] h-[600px] bg-[#E80368]/10 blur-[120px] rounded-full pointer-events-none hidden md:block translate-x-1/3 -translate-y-1/4" />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
         <div className="max-w-3xl">
