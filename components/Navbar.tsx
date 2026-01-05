@@ -74,7 +74,7 @@ const Navbar: React.FC = () => {
               </a>
             ))}
             <a 
-              href="https://raw.githubusercontent.com/TheDraKun/the-drakun-portfolio/main/Resume_DeepakNelson_2025.pdf" 
+              href="https://raw.githubusercontent.com/TheDraKun/the-drakun-portfolio/main/Resume_DeepakNelson_2026.pdf" 
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleCVDownload}
@@ -110,7 +110,7 @@ const Navbar: React.FC = () => {
             </a>
           ))}
           <a 
-            href="https://raw.githubusercontent.com/TheDraKun/the-drakun-portfolio/main/Resume_DeepakNelson_2025.pdf" 
+            href="https://raw.githubusercontent.com/TheDraKun/the-drakun-portfolio/main/Resume_DeepakNelson_2026.pdf" 
             target="_blank"
             rel="noopener noreferrer"
             onClick={handleCVDownload}
